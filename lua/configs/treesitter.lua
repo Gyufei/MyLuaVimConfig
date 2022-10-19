@@ -9,7 +9,9 @@ function M.config()
             "lua",
             "tsx",
             "css",
-            "yaml"
+            "vue",
+            "scss",
+            "vim"
         },
 		sync_install = true,
 		ignore_install = {},

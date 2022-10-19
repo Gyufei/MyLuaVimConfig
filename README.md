@@ -16,6 +16,8 @@
 - [grammer: english grammar check](https://github.com/rhysd/vim-grammarous/blob/master/doc/grammarous.txt)
 - [vim-bbye:buffer close helper](https://github.com/moll/vim-bbye)
 - [indent_blankline: indent_guide](https://github.com/lukas-reineke/indent-blankline.nvim/blob/master/doc/indent_blankline.txt)
+- [meason: lanuage service install helper](https://github.com/williamboman/mason.nvim)
+- [meason-lspconfig: meason helper with lspconfig](https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/mason-lspconfig.txt)
 
 ## theme
 - [edge](https://github.com/sainnhe/edge/blob/master/doc/edge.txt)

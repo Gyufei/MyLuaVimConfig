@@ -7,7 +7,6 @@ return require('packer').startup(function()
 	use 'lewis6991/impatient.nvim'
 	use 'nathom/filetype.nvim'
 
-	-- buffer
 	use {
 		'akinsho/bufferline.nvim',
 		requires = 'kyazdani42/nvim-web-devicons'
@@ -17,14 +16,17 @@ return require('packer').startup(function()
 	-- themes
 	use 'sainnhe/edge'
 
-	-- file tree
 	use {
 		'kyazdani42/nvim-tree.lua',
 		requires = 'kyazdani42/nvim-web-devicons'
 	}
 
 	-- language
-	use 'neovim/nvim-lspconfig'
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    }
 	use 'glepnir/lspsaga.nvim'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
@@ -57,8 +59,4 @@ return require('packer').startup(function()
 
 	-- indent guide
 	use "lukas-reineke/indent-blankline.nvim"
-
-	-- english grammar check
-	use 'rhysd/vim-grammarous'
-
 end)

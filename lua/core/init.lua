@@ -57,13 +57,13 @@ vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_remote_plugins    = 1
 
 require("impatient")
-require("configs.autocomplete").config()
-require("configs.statusline").config()
-require("configs.filetree").config()
+require("configs.cmp").config()
+require("configs.lspconfig").config()
+require("configs.lualine").config()
+require("configs.nvimtree").config()
 require("configs.treesitter").config()
-require("configs.git").config()
 require("configs.bufferline").config()
-require("configs.grammar").config()
+require("configs.git").config()
 require("configs.terminal").config()
 
 
