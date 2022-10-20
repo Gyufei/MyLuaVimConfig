@@ -14,8 +14,7 @@ function M.config()
 				return s
 			end,
 
-			offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "center" },
-				{ filetype = "SymbolsOutline", text = "Symbols Outline", text_align = "center" } },
+			offsets = { { filetype = "NvimTree", text = "File Explorer", text_align = "center" } },
 			separator_style = "thin",
 			sort_by = 'id'
 		}
