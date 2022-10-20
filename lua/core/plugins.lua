@@ -14,7 +14,8 @@ return require('packer').startup(function()
 	use 'moll/vim-bbye' -- for more sensible delete buffer cmd
 
 	-- themes
-	use 'sainnhe/edge'
+	-- use 'sainnhe/edge'
+    use 'projekt0n/github-nvim-theme'
 
 	use {
 		'kyazdani42/nvim-tree.lua',
@@ -53,11 +54,19 @@ return require('packer').startup(function()
 
 	-- file telescope
 	use {
+        "jose-elias-alvarez/null-ls.nvim",
+		requires = 'nvim-lua/plenary.nvim'
+	}
+	use {
 		'nvim-telescope/telescope.nvim',
 		requires = 'nvim-lua/plenary.nvim'
 	}
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+    use "windwp/nvim-autopairs"
+
 	-- indent guide
 	use "lukas-reineke/indent-blankline.nvim"
+
+    use 'numToStr/Comment.nvim'
 end)

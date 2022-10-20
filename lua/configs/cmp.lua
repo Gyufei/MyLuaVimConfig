@@ -85,6 +85,11 @@ function M.config()
     })
 
     -- local luasnip = require("luasnip")
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+    cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+    )
 
     local devicons = require('nvim-web-devicons')
     cmp.register_source('devicons', {
