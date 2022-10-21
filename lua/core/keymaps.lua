@@ -41,7 +41,6 @@ keymap.set('n', '<leader>bb', ':BufferLinePick <CR>')
 keymap.set('n', '<TAB>', ':BufferLineCycleNext <CR>')
 keymap.set('n', '<S-Tab>', ':BufferLineCyclePrev <CR>')
 
-
 keymap.set('n', 'H', vim.lsp.buf.hover)
 keymap.set('n', 'gd', vim.lsp.buf.definition)
 keymap.set('n', 'gD', vim.lsp.buf.declaration)
@@ -71,3 +70,28 @@ end, { silent = true })
 keymap.set("n", "]E", function()
     require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
+
+keymap.set('n', "]c",
+      function()
+        if vim.wo.diff then
+          return "]c"
+        end
+        vim.schedule(function()
+            require("gitsigns").next_hunk()
+        end)
+        return "<Ignore>"
+      end
+)
+
+keymap.set('n', "[c",
+      function()
+        if vim.wo.diff then
+          return "]c"
+        end
+        vim.schedule(function()
+          require("gitsigns").next_hunk()
+        end)
+        return "<Ignore>"
+      end
+)
+

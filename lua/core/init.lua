@@ -1,39 +1,55 @@
 -- basics
 vim.cmd('syntax on')
 vim.cmd('filetype plugin indent on')
-vim.opt.number         = true
-vim.opt.relativenumber = true
-vim.opt.termguicolors  = true
-vim.opt.shiftround     = true
-vim.opt.updatetime     = 100
-vim.opt.cursorline     = true
-vim.opt.autowrite      = true
 vim.opt.showmatch      = true
 vim.opt.autoread    = true
+vim.opt.autowrite      = true
+
+vim.opt.number         = true
+vim.opt.relativenumber = true
+vim.opt.cursorline     = true
 vim.opt.showcmd     = true
-vim.opt.scrolloff   = 3
+
+vim.opt.confirm = true
+vim.opt.history = 1000
+vim.opt.undofile = true
+vim.opt.undodir = "~/.vim/undo"
+vim.opt.undolevels = 1000
+vim.opt.undoreload = 10000
+
+vim.opt.shortmess = "atI"
+vim.opt.helplang = 'CN'
+vim.opt.encoding = 'utf-8'
+
+vim.opt.wrap = false
 vim.opt.wrapscan    = true
 vim.opt.ignorecase = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
-vim.opt.smarttab   = true
-vim.opt.smartindent = true
+vim.opt.iskeyword:append {'_', '$', '@', '%', '#', '-'}
+vim.opt.matchtime = 1
+
+vim.opt.cmdheight = 1
+vim.opt.laststatus = 2
+vim.opt.scrolloff = 3
+vim.opt.termguicolors  = true
+vim.opt.updatetime     = 100
 vim.opt.backspace = "indent,eol,start"
 vim.opt.selection = "exclusive"
 vim.opt.selectmode = "mouse,key"
-if (vim.fn.has('termguicolors') == 1) then
-    vim.opt.termguicolors = true
-end
 
 -- tabs
+vim.opt.smarttab   = true
+vim.opt.smartindent = true
 vim.opt.autoindent    = true
-vim.opt.tabstop       = 4
-vim.opt.shiftwidth    = 4
-vim.opt.softtabstop   = 4
-vim.opt.mouse         = 'a'
 vim.opt.expandtab     = true
-vim.opt.formatoptions = ''
-vim.opt.completeopt = "menuone,noselect"
+vim.opt.shiftround     = true
+vim.opt.shiftwidth    = 4
+vim.opt.tabstop       = 4
+vim.opt.softtabstop   = 4
+
+vim.opt.mouse        = 'a'
+-- vim.opt.completeopt = "menuone,noinsert,noselect"
 
 vim.g.gui_font_default_size = 12
 vim.g.gui_font_size = vim.g.gui_font_default_size
@@ -58,10 +74,6 @@ vim.g.loaded_netrw             = 1
 vim.g.loaded_netrwPlugin       = 1
 vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_remote_plugins    = 1
-
-vim.g.gui_font_default_size = 12
-vim.g.gui_font_size = vim.g.gui_font_default_size
-vim.g.gui_font_face = "NotoMono Nerd Font Mono"
 
 require("impatient")
 require("configs.cmp").config()

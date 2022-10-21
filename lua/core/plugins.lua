@@ -3,6 +3,11 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
+    use {
+        'nvim-lua/plenary.nvim',
+        module = 'plenary'
+    }
+
 	-- starup time optimise
 	use 'lewis6991/impatient.nvim'
 	use 'nathom/filetype.nvim'
@@ -55,12 +60,9 @@ return require('packer').startup(function()
 	-- file telescope
 	use {
         "jose-elias-alvarez/null-ls.nvim",
-		requires = 'nvim-lua/plenary.nvim'
+		'nvim-telescope/telescope.nvim'
 	}
-	use {
-		'nvim-telescope/telescope.nvim',
-		requires = 'nvim-lua/plenary.nvim'
-	}
+
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     use "windwp/nvim-autopairs"
