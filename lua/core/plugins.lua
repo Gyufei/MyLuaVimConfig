@@ -16,7 +16,6 @@ return require('packer').startup(function()
 	use 'moll/vim-bbye' -- for more sensible delete buffer cmd
 
 	-- themes
-	-- use 'sainnhe/edge'
     use 'projekt0n/github-nvim-theme'
 
 	use {
@@ -30,6 +29,7 @@ return require('packer').startup(function()
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
     }
+
 	use 'glepnir/lspsaga.nvim'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'

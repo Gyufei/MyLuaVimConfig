@@ -29,12 +29,12 @@ keymap.set('n', '<leader>/', "<cmd> Telescope live_grep <CR>")
 keymap.set('n', 'K', "<cmd> Telescope grep_string <CR>")
 keymap.set('n', '<leader>ff', "<cmd> Telescope find_files <CR>")
 
--- vim.keymap.set('n', '<leader>fb', "<cmd> Telescope buffers <CR>")
--- vim.keymap.set('n', '<leader>fo', "<cmd> Telescope oldfiles <CR>")
--- vim.keymap.set('n', '<leader>fv', "<cmd> Telescope treesitter <CR>")
 -- vim.keymap.set('n', '<leader>fgc', "<cmd> Telescope git_commits <CR>")
 -- vim.keymap.set('n', '<leader>fgs', "<cmd> Telescope git_status <CR>")
 -- vim.keymap.set('n', '<leader>fgb', "<cmd> Telescope git_branches <CR>")
+-- vim.keymap.set('n', '<leader>fb', "<cmd> Telescope buffers <CR>")
+-- vim.keymap.set('n', '<leader>fo', "<cmd> Telescope oldfiles <CR>")
+-- vim.keymap.set('n', '<leader>fv', "<cmd> Telescope treesitter <CR>")
 
 -- b: buffer
 keymap.set('n', '<leader>bb', ':BufferLinePick <CR>')
