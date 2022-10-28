@@ -1,6 +1,6 @@
 local M = {}
 function M.config()
-    local servers = { "html", "cssls", "tsserver", "tailwindcss", "jsonls", "eslint", "volar", "sumneko_lua", "vimls"}
+    local servers = { "html", "cssls", "tsserver", "tailwindcss", "jsonls", "volar", "sumneko_lua", "vimls"}
 
     local function on_attach (client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
