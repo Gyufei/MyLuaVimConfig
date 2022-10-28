@@ -8,9 +8,8 @@ else
     set undolevels=1000
     set undoreload=10000
     set nowrap
+    set clipboard^=unnamed,unnamedplus
 
     let path = expand('<sfile>:p:h')
     exec 'source' path . '/vim/buffer.vim'
-
-    set clipboard^=unnamed,unnamedplus
 endif

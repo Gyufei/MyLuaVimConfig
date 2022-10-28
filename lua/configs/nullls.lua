@@ -1,7 +1,7 @@
 local M = {}
 function M.config()
     require("null-ls").setup({
-        diagnostics_format = "[#{c}] #{m} (#{s})",
+        diagnostics_format = "#{m} (#{s})",
         sources = {
 
             require("null-ls").builtins.code_actions.eslint_d,

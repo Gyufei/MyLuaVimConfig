@@ -3,8 +3,6 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
-    use 'nvim-lua/plenary.nvim'
-
 	-- starup time optimise
 	use 'lewis6991/impatient.nvim'
 	use 'nathom/filetype.nvim'
@@ -13,7 +11,6 @@ return require('packer').startup(function()
 		'akinsho/bufferline.nvim',
 		requires = 'kyazdani42/nvim-web-devicons'
 	}
-	use 'moll/vim-bbye' -- for more sensible delete buffer cmd
 
 	-- themes
     use 'projekt0n/github-nvim-theme'
@@ -25,9 +22,9 @@ return require('packer').startup(function()
 
 	-- language
     use {
+        "neovim/nvim-lspconfig",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
     }
 
 	use 'glepnir/lspsaga.nvim'
@@ -56,22 +53,21 @@ return require('packer').startup(function()
 
 	-- file telescope
 	use {
-        "jose-elias-alvarez/null-ls.nvim",
-        requires = 'nvim-lua/plenary.nvim'
+          "jose-elias-alvarez/null-ls.nvim",
+          requires = 'nvim-lua/plenary.nvim'
 	}
-    use {
+        use {
 		'nvim-telescope/telescope.nvim',
         requires = 'nvim-lua/plenary.nvim'
 	}
+        use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+        use "windwp/nvim-autopairs"
+        use "kylechui/nvim-surround"
+        --  esay motion
+        use "phaazon/hop.nvim"
 
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-    use "windwp/nvim-autopairs"
-    use "kylechui/nvim-surround"
-
-	-- indent guide
-	use "lukas-reineke/indent-blankline.nvim"
-
-    use 'numToStr/Comment.nvim'
+        use "lukas-reineke/indent-blankline.nvim"
+        use 'numToStr/Comment.nvim'
+        use 'moll/vim-bbye'
 end)

@@ -25,8 +25,10 @@ function M.config()
     })
 
     require('Comment').setup()
-
+    require('hop').setup()
     require("nvim-surround").setup()
+
+
 end
 
 return M
