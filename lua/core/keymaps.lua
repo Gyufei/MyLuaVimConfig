@@ -57,7 +57,7 @@ keymap.set('n', '<leader>ld', ':Lspsaga peek_definition<cr>')
 -- use <C-t> to jump back
 keymap.set('n', '<leader>ll', ':Lspsaga lsp_finder<cr>')
 keymap.set('n', '<leader>lh', vim.lsp.buf.signature_help)
-keymap.set('n', '<leader>lf', vim.lsp.buf.formatting)
+keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 keymap.set('n', '<leader>lq', vim.diagnostic.setloclist)
 -- Outline
 keymap.set("n", "<leader>lo", "<cmd>LSoutlineToggle<CR>", { silent = true })

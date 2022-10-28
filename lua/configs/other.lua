@@ -25,6 +25,8 @@ function M.config()
     })
 
     require('Comment').setup()
+
+    require("nvim-surround").setup()
 end
 
 return M

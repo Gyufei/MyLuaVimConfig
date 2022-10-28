@@ -68,6 +68,7 @@ return require('packer').startup(function()
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     use "windwp/nvim-autopairs"
+    use "kylechui/nvim-surround"
 
 	-- indent guide
 	use "lukas-reineke/indent-blankline.nvim"

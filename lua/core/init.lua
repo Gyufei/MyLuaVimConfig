@@ -49,7 +49,6 @@ vim.opt.tabstop       = 4
 vim.opt.softtabstop   = 4
 
 vim.opt.mouse        = 'a'
--- vim.opt.completeopt = "menuone,noinsert,noselect"
 
 vim.g.gui_font_default_size = 12
 vim.g.gui_font_size = vim.g.gui_font_default_size
