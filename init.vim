@@ -3,10 +3,7 @@ if exists('g:vscode')
 else
     lua require('core.init')
 
-    set undofile                
     set undodir=$HOME/.vim/undo
-    set undolevels=1000
-    set undoreload=10000
     set nowrap
     set clipboard^=unnamed,unnamedplus
 
