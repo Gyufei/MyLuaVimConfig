@@ -7,11 +7,6 @@ return require('packer').startup(function()
 	use 'lewis6991/impatient.nvim'
 	use 'nathom/filetype.nvim'
 
-	use {
-		'akinsho/bufferline.nvim',
-		requires = 'kyazdani42/nvim-web-devicons'
-	}
-
 	-- themes
     use 'projekt0n/github-nvim-theme'
 
@@ -42,6 +37,11 @@ return require('packer').startup(function()
 		tag = 'release',
 	}
 
+	use {
+		'akinsho/bufferline.nvim',
+		requires = 'kyazdani42/nvim-web-devicons'
+	}
+
 	-- status line
 	use {
 		'nvim-lualine/lualine.nvim',
@@ -56,18 +56,20 @@ return require('packer').startup(function()
           "jose-elias-alvarez/null-ls.nvim",
           requires = 'nvim-lua/plenary.nvim'
 	}
-        use {
+    use {
 		'nvim-telescope/telescope.nvim',
         requires = 'nvim-lua/plenary.nvim'
 	}
-        use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-        use "windwp/nvim-autopairs"
-        use "kylechui/nvim-surround"
-        --  esay motion
-        use "phaazon/hop.nvim"
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-        use "lukas-reineke/indent-blankline.nvim"
-        use 'numToStr/Comment.nvim'
-        use 'moll/vim-bbye'
+    use "windwp/nvim-autopairs"
+    use "kylechui/nvim-surround"
+    --  esay motion
+    use "phaazon/hop.nvim"
+
+    use "lukas-reineke/indent-blankline.nvim"
+    use 'numToStr/Comment.nvim'
+    use 'moll/vim-bbye'
+
 end)
