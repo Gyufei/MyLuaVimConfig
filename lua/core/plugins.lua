@@ -72,4 +72,5 @@ return require('packer').startup(function()
     use 'numToStr/Comment.nvim'
     use 'moll/vim-bbye'
 
+    use {'kevinhwang91/nvim-bqf', ft = 'qf'}
 end)
