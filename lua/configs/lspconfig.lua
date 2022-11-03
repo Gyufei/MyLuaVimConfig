@@ -2,6 +2,11 @@ local M = {}
 function M.config()
     local servers = { "html", "cssls", "tsserver", "tailwindcss", "jsonls", "volar", "sumneko_lua", "vimls"}
 
+    require("mason").setup()
+    require("mason-lspconfig").setup({
+        ensure_installed = servers
+    })
+
     local function on_attach (client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
@@ -26,17 +31,15 @@ function M.config()
         },
     }
 
-    for _, lsp in pairs(servers) do
-        require('lspconfig')[lsp].setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-        })
-    end
+    require("mason-lspconfig").setup_handlers {
+        function (server_name)
+            require("lspconfig")[server_name].setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+            }
+        end
+    }
 
-    require("mason").setup()
-    require("mason-lspconfig").setup({
-        ensure_installed = servers
-    })
 end
 
 return M

@@ -26,6 +26,11 @@ function M.config()
             change_dir = {
                 global = false
             },
+            open_file = {
+                window_picker = {
+                    enable = false,
+                },
+            }
         }
     }
 end

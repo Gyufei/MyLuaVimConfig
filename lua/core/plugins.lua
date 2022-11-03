@@ -17,9 +17,9 @@ return require('packer').startup(function()
 
 	-- language
     use {
-        "neovim/nvim-lspconfig",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
     }
 
 	use 'glepnir/lspsaga.nvim'
