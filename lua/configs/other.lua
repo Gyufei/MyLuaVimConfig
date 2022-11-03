@@ -48,6 +48,8 @@ function M.config()
     vim.keymap.set('', '<leader><leader>k', function()
         hop.hint_words({})
     end, {remap=true})
+
+    require('bqf').setup()
 end
 
 return M
