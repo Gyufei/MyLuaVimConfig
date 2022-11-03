@@ -37,6 +37,7 @@ vim.opt.updatetime     = 100
 vim.opt.backspace = "indent,eol,start"
 vim.opt.selection = "exclusive"
 vim.opt.selectmode = "mouse,key"
+vim.opt.signcolumn = "yes:1"
 
 -- tabs
 vim.opt.smarttab   = true

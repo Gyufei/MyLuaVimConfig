@@ -27,9 +27,9 @@ function M.config()
                 global = false
             },
             open_file = {
-                window_picker = {
-                    enable = false,
-                },
+                -- window_picker = {
+                --     enable = false,
+                -- },
             }
         }
     }
