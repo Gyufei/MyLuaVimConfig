@@ -4,7 +4,6 @@ local keymap = vim.keymap
 
 keymap.set('i', '<C-b>', '<ESC>^i')
 keymap.set('i', '<C-e>', '<End>')
-keymap.set('i', '<C-h>', '<Left>')
 keymap.set('i', '<C-l>', '<Right>')
 keymap.set('i', '<C-j>', '<Down>')
 keymap.set('i', '<C-k>', '<Up>')
