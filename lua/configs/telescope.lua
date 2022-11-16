@@ -8,7 +8,7 @@ function M.config()
                     ["<C-k>"] = require('telescope.actions').cycle_history_next,
                 },
             },
-            file_ignore_patterns = { '^dist/', 'pnpm-lock.yaml' },
+            file_ignore_patterns = { '^dist/', 'pnpm-lock.yaml', 'package-lock.json', 'yarn.lock'},
         },
         extensions = {
             fzf = {
