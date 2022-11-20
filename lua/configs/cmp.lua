@@ -84,7 +84,10 @@ function M.config()
         }
     })
 
-    -- local luasnip = require("luasnip")
+    local luasnip = require("luasnip")
+    -- load snippets from path/of/your/nvim/config/my-cool-snippets
+    require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
+
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     cmp.event:on(
         'confirm_done',
