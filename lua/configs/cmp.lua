@@ -2,6 +2,10 @@ local M = {}
 
 function M.config()
     local cmp = require 'cmp'
+    local luasnip = require("luasnip")
+    -- load snippets from path/of/your/nvim/config/my-cool-snippets
+    require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
+
 
     local function border(hl_name)
         return {
@@ -79,14 +83,9 @@ function M.config()
             { name = "luasnip" },
             { name = "nvim_lsp" },
             { name = "buffer" },
-            { name = "nvim_lua" },
             { name = "path" },
         }
     })
-
-    local luasnip = require("luasnip")
-    -- load snippets from path/of/your/nvim/config/my-cool-snippets
-    require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
 
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     cmp.event:on(
