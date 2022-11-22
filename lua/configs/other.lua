@@ -1,6 +1,8 @@
 local M = {}
 function M.config()
-    require('gitsigns').setup {}
+    require('gitsigns').setup({
+      current_line_blame = true
+    })
 
     require("github-theme").setup({
         theme_style = "dark",

@@ -9,7 +9,7 @@ function M.config()
             ".eslintrc.json",
         })
     end
-        
+
     require("null-ls").setup({
         -- diagnostics_format = "#{m} (#{s})",
         -- sources = {

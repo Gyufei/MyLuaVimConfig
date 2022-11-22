@@ -70,6 +70,7 @@ keymap.set("n", "]E", function()
     require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 
+-- git
 keymap.set('n', "]c",
       function()
         if vim.wo.diff then
