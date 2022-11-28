@@ -1,19 +1,19 @@
 -- packer.nvim
 vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
-	use 'wbthomason/packer.nvim'
+	 use 'wbthomason/packer.nvim'
 
-	-- starup time optimise
-	use 'lewis6991/impatient.nvim'
-	use 'nathom/filetype.nvim'
+	 -- starup time optimise
+	 use 'lewis6991/impatient.nvim'
+	 use 'nathom/filetype.nvim'
 
-	-- themes
-    use 'projekt0n/github-nvim-theme'
+	 -- themes
+   use 'projekt0n/github-nvim-theme'
 
-	use {
+	 use {
 		'kyazdani42/nvim-tree.lua',
 		requires = 'kyazdani42/nvim-web-devicons'
-	}
+	 }
 
 	-- language
     use {
@@ -55,12 +55,12 @@ return require('packer').startup(function()
 
 	-- file telescope
 	use {
-          "jose-elias-alvarez/null-ls.nvim",
-          requires = 'nvim-lua/plenary.nvim'
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = 'nvim-lua/plenary.nvim'
 	}
-    use {
+  use {
 		'nvim-telescope/telescope.nvim',
-        requires = 'nvim-lua/plenary.nvim'
+    requires = 'nvim-lua/plenary.nvim'
 	}
 
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
