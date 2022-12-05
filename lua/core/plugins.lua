@@ -44,6 +44,11 @@ return require('packer').startup(function()
 		requires = 'kyazdani42/nvim-web-devicons'
 	}
 
+  use {
+    "folke/trouble.nvim",
+     requires = "kyazdani42/nvim-web-devicons"
+  }
+
 	-- status line
 	use {
 		'nvim-lualine/lualine.nvim',
