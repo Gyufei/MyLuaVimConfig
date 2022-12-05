@@ -8,6 +8,8 @@ function M.config()
                     ["<C-k>"] = require('telescope.actions').cycle_history_next,
                 },
             },
+            layout_strategy = 'vertical',
+            layout_config = { height = 0.95 },
             file_ignore_patterns = { '^dist/', '^pnpm-lock.yaml$', '^package-lock.json$', '^yarn.lock$'},
         },
         extensions = {
