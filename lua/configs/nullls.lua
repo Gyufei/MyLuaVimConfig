@@ -32,7 +32,7 @@ function M.config()
             -- require("null-ls").builtins.formatting.prettierd
             require("null-ls").builtins.formatting.prettierd.with({
               condition = function(utils)
-                return utils.root_has_file({ ".prettierrc"})
+                return utils.root_has_file({ ".prettierrc.js"})
               end,
             }),
         },
