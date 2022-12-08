@@ -28,12 +28,14 @@ keymap.set('n', '<leader>/', "<cmd> Telescope live_grep <CR>")
 keymap.set('n', 'K', "<cmd> Telescope grep_string <CR>")
 keymap.set('n', '<leader>ff', "<cmd> Telescope find_files <CR>")
 
--- vim.keymap.set('n', '<leader>fgc', "<cmd> Telescope git_commits <CR>")
--- vim.keymap.set('n', '<leader>fgs', "<cmd> Telescope git_status <CR>")
--- vim.keymap.set('n', '<leader>fgb', "<cmd> Telescope git_branches <CR>")
--- vim.keymap.set('n', '<leader>fb', "<cmd> Telescope buffers <CR>")
--- vim.keymap.set('n', '<leader>fo', "<cmd> Telescope oldfiles <CR>")
--- vim.keymap.set('n', '<leader>fv', "<cmd> Telescope treesitter <CR>")
+keymap.set('n', '<leader>gc', "<cmd> Telescope git_bcommits <CR>")
+keymap.set('n', '<leader>gs', "<cmd> Telescope git_status <CR>")
+
+-- keymap.set('n', '<leader>fgc', "<cmd> Telescope git_commits <CR>")
+-- keymap.set('n', '<leader>fgb', "<cmd> Telescope git_branches <CR>")
+-- keymap.set('n', '<leader>fb', "<cmd> Telescope buffers <CR>")
+-- keymap.set('n', '<leader>fo', "<cmd> Telescope oldfiles <CR>")
+-- keymap.set('n', '<leader>fv', "<cmd> Telescope treesitter <CR>")
 
 -- b: buffer
 keymap.set('n', '<leader>bb', ':BufferLinePick <CR>')
@@ -42,21 +44,21 @@ keymap.set('n', '<S-Tab>', ':BufferLineCyclePrev <CR>')
 
 keymap.set('n', 'H', vim.lsp.buf.hover)
 keymap.set('n', 'gd', vim.lsp.buf.definition)
-keymap.set('n', 'gD', vim.lsp.buf.declaration)
-keymap.set('n', 'gt', vim.lsp.buf.type_definition)
-keymap.set('n', 'gi', vim.lsp.buf.implementation)
 keymap.set('n', 'gr', vim.lsp.buf.references)
+-- keymap.set('n', 'gD', vim.lsp.buf.declaration)
+-- keymap.set('n', 'gt', vim.lsp.buf.type_definition)
+-- keymap.set('n', 'gi', vim.lsp.buf.implementation)
+--
 -- lsp
 keymap.set('n', '<leader>la', ':Lspsaga code_action<cr>')
 keymap.set('n', '<leader>le', ':Lspsaga show_line_diagnostics<cr>')
 keymap.set('n', '<leader>lE', ':Lspsaga show_cursor_diagnostics<cr>')
 keymap.set('n', '<leader>lr', ':Lspsaga rename<cr>')
-
-keymap.set('n', '<leader>ld', ':Lspsaga peek_definition<cr>')
+keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 -- use <C-t> to jump back
 keymap.set('n', '<leader>ll', ':Lspsaga lsp_finder<cr>')
+keymap.set('n', '<leader>ld', ':Lspsaga peek_definition<cr>')
 keymap.set('n', '<leader>lh', vim.lsp.buf.signature_help)
-keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 keymap.set('n', '<leader>lq', vim.diagnostic.setloclist)
 -- Outline
 keymap.set("n", "<leader>lo", "<cmd>LSoutlineToggle<CR>", { silent = true })
