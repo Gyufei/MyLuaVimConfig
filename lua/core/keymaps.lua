@@ -52,9 +52,10 @@ keymap.set('n', 'gr', vim.lsp.buf.references)
 -- lsp
 keymap.set('n', '<leader>la', ':Lspsaga code_action<cr>')
 keymap.set('n', '<leader>le', ':Lspsaga show_line_diagnostics<cr>')
-keymap.set('n', '<leader>lE', ':Lspsaga show_cursor_diagnostics<cr>')
-keymap.set('n', '<leader>lr', ':Lspsaga rename<cr>')
-keymap.set('n', '<leader>lf', vim.lsp.buf.format)
+keymap.set('n', '<leader>rn', ':Lspsaga rename<cr>')
+-- keymap.set('n', '<leader>lE', ':Lspsaga show_cursor_diagnostics<cr>')
+-- keymap.set('n', '<leader>lf', vim.lsp.buf.format)
+--
 -- use <C-t> to jump back
 keymap.set('n', '<leader>ll', ':Lspsaga lsp_finder<cr>')
 keymap.set('n', '<leader>ld', ':Lspsaga peek_definition<cr>')
