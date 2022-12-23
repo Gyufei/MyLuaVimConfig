@@ -55,6 +55,18 @@ function M.config()
     end, {remap=true})
 
     require('bqf').setup({})
+
+    require('close_buffers').setup({
+      preserve_window_layout = { 'this', 'nameless' },  -- Types of deletion that should preserve the window layout
+      next_buffer_cmd = function(windows)
+        require('bufferline').cycle(1)
+        local bufnr = vim.api.nvim_get_current_buf()
+
+        for _, window in ipairs(windows) do
+          vim.api.nvim_win_set_buf(window, bufnr)
+        end
+      end,
+    })
 end
 
 return M

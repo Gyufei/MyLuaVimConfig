@@ -1,9 +1,11 @@
 local keymap = vim.keymap
 
-keymap.set('n', '<leader>q', '<cmd> Bdelete <CR>')
+keymap.set('n', '<leader>q', ":BDelete this<CR>")
+keymap.set('n', '<leader>bm', ":BDelete other<CR>")
+
 
 -- t: file tree
-keymap.set('n', '<leader>t', ':NvimTreeToggle<cr>')
+keymap.set('n', '<leader>t', '<cmd> NvimTreeToggle <CR>')
 
 -- f: telescope
 keymap.set({ 'n', 'i' }, '<C-p>', function() require 'telescope.builtin'.find_files {} end)

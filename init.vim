@@ -8,6 +8,4 @@ else
     set undodir=$HOME/.config/nvim/undo
     set nowrap
     set clipboard^=unnamed,unnamedplus
-
-    exec 'source' path . '/vim/buffer.vim'
 endif

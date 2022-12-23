@@ -79,7 +79,8 @@ use "phaazon/hop.nvim"
 
 use "lukas-reineke/indent-blankline.nvim"
 use 'numToStr/Comment.nvim'
-use 'moll/vim-bbye'
+-- use 'moll/vim-bbye'
+use 'kazhala/close-buffers.nvim'
 
 use {'kevinhwang91/nvim-bqf'}
 end)
