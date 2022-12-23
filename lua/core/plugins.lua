@@ -1,5 +1,6 @@
 -- packer.nvim
 vim.cmd [[packadd packer.nvim]]
+
 return require('packer').startup(function()
 	 use 'wbthomason/packer.nvim'
 
@@ -16,11 +17,11 @@ return require('packer').startup(function()
 	 }
 
 	-- language
-    use {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
-    }
+  use {
+     "williamboman/mason.nvim",
+     "williamboman/mason-lspconfig.nvim",
+     "neovim/nvim-lspconfig",
+  }
 
 	use 'glepnir/lspsaga.nvim'
 	use 'hrsh7th/cmp-nvim-lsp'

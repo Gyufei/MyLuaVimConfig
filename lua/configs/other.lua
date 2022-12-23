@@ -51,7 +51,7 @@ function M.config()
         hop.hint_words({})
     end, {remap=true})
 
-    require('bqf').setup()
+    require('bqf').setup({})
 end
 
 return M

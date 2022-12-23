@@ -16,6 +16,7 @@ keymap.set('n', '<C-k>', '<C-w>k')
 
 keymap.set('n', '<leader>w', '<cmd> w <CR>')
 keymap.set('n', '<leader>q', '<cmd> Bdelete <CR>')
+keymap.set('n', '<leader>Q', '<cmd> :bd <CR>')
 keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
 keymap.set({ 'n', 'v' }, '<leader>P', '"+P')
 
