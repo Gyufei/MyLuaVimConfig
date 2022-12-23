@@ -69,16 +69,16 @@ return require('packer').startup(function()
     requires = 'nvim-lua/plenary.nvim'
 	}
 
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use 'windwp/nvim-spectre'
+  use "windwp/nvim-autopairs"
+  use "kylechui/nvim-surround"
+  --  esay motion
+  use "phaazon/hop.nvim"
 
-    use "windwp/nvim-autopairs"
-    use "kylechui/nvim-surround"
-    --  esay motion
-    use "phaazon/hop.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
+  use 'numToStr/Comment.nvim'
+  use 'moll/vim-bbye'
 
-    use "lukas-reineke/indent-blankline.nvim"
-    use 'numToStr/Comment.nvim'
-    use 'moll/vim-bbye'
-
-    use {'kevinhwang91/nvim-bqf'}
+  use {'kevinhwang91/nvim-bqf'}
 end)

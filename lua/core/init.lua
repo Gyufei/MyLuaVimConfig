@@ -55,7 +55,8 @@ vim.g.gui_font_default_size = 12
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = "NotoMono Nerd Font Mono"
 
-require("core.keymaps")
+require("keymap.normal")
+require("keymap.pluginkeymap")
 require("core.plugins")
 
 -- disable some useless standard plugins to save startup time
@@ -86,5 +87,6 @@ require("configs.lualine").config()
 require("configs.bufferline").config()
 require("configs.terminal").config()
 require("configs.telescope").config()
+require("configs.findReplace").config()
 require("configs.other").config()
 

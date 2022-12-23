@@ -1,48 +1,40 @@
-vim.g.mapleader = " "
-
 local keymap = vim.keymap
 
-keymap.set('i', '<C-b>', '<ESC>^i')
-keymap.set('i', '<C-e>', '<End>')
-keymap.set('i', '<C-l>', '<Right>')
-keymap.set('i', '<C-j>', '<Down>')
-keymap.set('i', '<C-k>', '<Up>')
-
-keymap.set('n', '<C-h>', '<C-w>h')
-keymap.set('n', '<C-l>', '<C-w>l')
-keymap.set('n', '<C-j>', '<C-w>j')
-keymap.set('n', '<C-k>', '<C-w>k')
-
-
-keymap.set('n', '<leader>w', '<cmd> w <CR>')
 keymap.set('n', '<leader>q', '<cmd> Bdelete <CR>')
-keymap.set('n', '<leader>Q', '<cmd> :bd <CR>')
-keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
-keymap.set({ 'n', 'v' }, '<leader>P', '"+P')
 
--- f: file tree
-keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>')
+-- t: file tree
+keymap.set('n', '<leader>t', ':NvimTreeToggle<cr>')
 
--- y: telescope
+-- f: telescope
 keymap.set({ 'n', 'i' }, '<C-p>', function() require 'telescope.builtin'.find_files {} end)
 keymap.set('n', '<leader>/', "<cmd> Telescope live_grep <CR>")
 keymap.set('n', 'K', "<cmd> Telescope grep_string <CR>")
 keymap.set('n', '<leader>ff', "<cmd> Telescope find_files <CR>")
-
 keymap.set('n', '<leader>gc', "<cmd> Telescope git_bcommits <CR>")
 keymap.set('n', '<leader>gs', "<cmd> Telescope git_status <CR>")
-
 -- keymap.set('n', '<leader>fgc', "<cmd> Telescope git_commits <CR>")
 -- keymap.set('n', '<leader>fgb', "<cmd> Telescope git_branches <CR>")
 -- keymap.set('n', '<leader>fb', "<cmd> Telescope buffers <CR>")
 -- keymap.set('n', '<leader>fo', "<cmd> Telescope oldfiles <CR>")
 -- keymap.set('n', '<leader>fv', "<cmd> Telescope treesitter <CR>")
 
+
+--s :Spectre search replace
+keymap.set("n", "<leader>sr", "<cmd>lua require('spectre').open()<CR>")
+-- search current word
+keymap.set("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>")
+keymap.set("v", "<leader>sr", "<esc>:lua require('spectre').open_visual()<CR>")
+-- search in current file
+keymap.set("v", "<leader>sr", "<esc>:lua require('spectre').open_visual()<CR>")
+keymap.set("n", "<leader>sp", "viw:lua require('spectre').open_file_search()<CR>")
+
+
 -- b: buffer
 keymap.set('n', '<leader>bb', ':BufferLinePick <CR>')
 keymap.set('n', '<TAB>', ':BufferLineCycleNext <CR>')
 keymap.set('n', '<S-Tab>', ':BufferLineCyclePrev <CR>')
 
+-- l: lsp
 keymap.set('n', 'H', vim.lsp.buf.hover)
 keymap.set('n', 'gd', vim.lsp.buf.definition)
 keymap.set('n', 'gr', vim.lsp.buf.references)
@@ -90,12 +82,13 @@ keymap.set('n', "]c",
 keymap.set('n', "[c",
       function()
         if vim.wo.diff then
-          return "]c"
+          return "[c"
         end
         vim.schedule(function()
-          require("gitsigns").next_hunk()
+          require("gitsigns").prev_hunk()
         end)
         return "<Ignore>"
       end
 )
+
 
