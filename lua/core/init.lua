@@ -55,6 +55,9 @@ vim.g.gui_font_default_size = 12
 vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = "NotoMono Nerd Font Mono"
 
+vim.o.background = "dark" -- or "light"
+vim.cmd("colorscheme gruvbox")
+
 require("keymap.normal")
 require("keymap.pluginkeymap")
 require("core.plugins")
@@ -87,6 +90,5 @@ require("configs.lualine").config()
 require("configs.bufferline").config()
 require("configs.terminal").config()
 require("configs.telescope").config()
-require("configs.findReplace").config()
 require("configs.other").config()
 

@@ -4,9 +4,11 @@ function M.config()
       current_line_blame = true
     })
 
-    require("github-theme").setup({
-        theme_style = "dark",
-    })
+    -- require("github-theme").setup({
+    --     theme_style = "dark",
+    -- })
+    require("gruvbox").setup({})
+
 
     require("nvim-autopairs").setup({
         disable_in_macro = true,
@@ -28,6 +30,7 @@ function M.config()
 
     require('Comment').setup()
     require("nvim-surround").setup()
+    require('spectre').setup()
 
     require('hop').setup()
     local hop = require('hop')
