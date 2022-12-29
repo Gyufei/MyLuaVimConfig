@@ -6,7 +6,6 @@ function M.config()
     -- load snippets from path/of/your/nvim/config/my-cool-snippets
     require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets" } })
 
-
     local function border(hl_name)
         return {
           { "╭", hl_name },
@@ -40,7 +39,7 @@ function M.config()
         },
         snippet = {
             expand = function(args)
-                require('luasnip').lsp_expand(args.body)
+                luasnip.lsp_expand(args.body)
             end,
         },
         mapping = {
@@ -57,7 +56,7 @@ function M.config()
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
-                elseif require("luasnip").expand_or_jumpable() then
+                elseif luasnip.expand_or_jumpable() then
                     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
                 else
                     fallback()
@@ -69,7 +68,7 @@ function M.config()
             ["<S-Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_prev_item()
-                elseif require("luasnip").jumpable(-1) then
+                elseif luasnip.jumpable(-1) then
                     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
                 else
                     fallback()
@@ -86,12 +85,6 @@ function M.config()
             { name = "path" },
         }
     })
-
-    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-    cmp.event:on(
-        'confirm_done',
-        cmp_autopairs.on_confirm_done()
-    )
 
     local devicons = require('nvim-web-devicons')
     cmp.register_source('devicons', {
