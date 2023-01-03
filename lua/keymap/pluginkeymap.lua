@@ -27,9 +27,7 @@ keymap.set("n", "<leader>sr", "<cmd>lua require('spectre').open()<CR>")
 keymap.set("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>")
 keymap.set("v", "<leader>sr", "<esc>:lua require('spectre').open_visual()<CR>")
 -- search in current file
-keymap.set("v", "<leader>sr", "<esc>:lua require('spectre').open_visual()<CR>")
 keymap.set("n", "<leader>sp", "viw:lua require('spectre').open_file_search()<CR>")
-
 
 -- b: buffer
 keymap.set('n', '<leader>bb', ':BufferLinePick <CR>')
@@ -69,6 +67,11 @@ keymap.set("n", "]E", function()
 end, { silent = true })
 
 -- git
+keymap.set('n', '<leader>gv', 
+  function()
+    require("gitsigns").preview_hunk()
+  end
+)
 keymap.set('n', "]c",
       function()
         if vim.wo.diff then
