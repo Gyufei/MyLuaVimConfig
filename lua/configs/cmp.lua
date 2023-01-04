@@ -89,20 +89,17 @@ function M.config()
     local devicons = require('nvim-web-devicons')
     cmp.register_source('devicons', {
         complete = function(_, _, callback)
-        local items = {}
-        for _, icon in pairs(devicons.get_icons()) do
-            table.insert(items, {
-            label = icon.icon .. '  ' .. icon.name,
-            insertText = icon.icon,
-            filterText = icon.name,
-            })
-        end
-        callback({ items = items })
+          local items = {}
+          for _, icon in pairs(devicons.get_icons()) do
+              table.insert(items, {
+                label = icon.icon .. '  ' .. icon.name,
+                insertText = icon.icon,
+                filterText = icon.name,
+              })
+          end
+          callback({ items = items })
         end,
     })
-
-    local saga = require 'lspsaga'
-    saga.init_lsp_saga({})
 end
 
 return M

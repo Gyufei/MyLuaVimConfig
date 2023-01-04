@@ -2,7 +2,7 @@ local M = {}
 function M.config()
 	require("toggleterm").setup {
 		size = 30,
-		open_mapping = "<C-t>",
+		open_mapping = [[<c-\>]],
 		direction = 'float', -- 'horizontal' 'vertical' 'tab' 'float'
 		float_opts = {
 			border = 'single',

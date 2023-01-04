@@ -6,22 +6,12 @@ return require('packer').startup(function()
   -- starup time optimise
   use 'lewis6991/impatient.nvim'
   use 'nathom/filetype.nvim'
-
   -- themes
   use "ellisonleao/gruvbox.nvim"
-
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons'
-  }
+  use 'nvim-treesitter/nvim-treesitter'
 
   -- language
-  use {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
-  }
-
+  use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig", }
   use 'glepnir/lspsaga.nvim'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
@@ -30,54 +20,27 @@ return require('packer').startup(function()
   use 'hrsh7th/nvim-cmp'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
+  use { "jose-elias-alvarez/null-ls.nvim", requires = 'nvim-lua/plenary.nvim' }
 
-  use 'nvim-treesitter/nvim-treesitter'
+  use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons' }
+  use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+  use { 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' }
 
-  -- git
-  use {
-    'lewis6991/gitsigns.nvim',
-    tag = 'release',
-  }
+  use { 'lewis6991/gitsigns.nvim', tag = 'release', }
+  use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
+  use 'kevinhwang91/nvim-bqf'
+  use 'windwp/nvim-spectre'
 
-  use {
-    'akinsho/bufferline.nvim',
-    requires = 'kyazdani42/nvim-web-devicons'
-  }
-
-  use {
-    "folke/trouble.nvim",
-      requires = "kyazdani42/nvim-web-devicons"
-  }
-
-  -- status line
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = 'kyazdani42/nvim-web-devicons'
-  }
-
-  -- floating terminal
+  use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'akinsho/toggleterm.nvim'
 
-  -- file telescope
-  use {
-    "jose-elias-alvarez/null-ls.nvim",
-    requires = 'nvim-lua/plenary.nvim'
-  }
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = 'nvim-lua/plenary.nvim'
-  }
+  use 'numToStr/Comment.nvim'
+  use "lukas-reineke/indent-blankline.nvim"
 
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'windwp/nvim-spectre'
+  use 'RRethy/vim-illuminate'
+  use 'kazhala/close-buffers.nvim'
   use 'm4xshen/autoclose.nvim'
   use "kylechui/nvim-surround"
-  --  esay motion
   use "phaazon/hop.nvim"
-
-  use "lukas-reineke/indent-blankline.nvim"
-  use 'numToStr/Comment.nvim'
-  use 'kazhala/close-buffers.nvim'
-
-  use 'kevinhwang91/nvim-bqf'
 end)

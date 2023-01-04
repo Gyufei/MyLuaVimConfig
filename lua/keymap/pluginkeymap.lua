@@ -41,24 +41,27 @@ keymap.set('n', 'gr', vim.lsp.buf.references)
 -- keymap.set('n', 'gD', vim.lsp.buf.declaration)
 -- keymap.set('n', 'gt', vim.lsp.buf.type_definition)
 -- keymap.set('n', 'gi', vim.lsp.buf.implementation)
---
+
 -- lsp
-keymap.set('n', '<leader>la', ':Lspsaga code_action<cr>')
-keymap.set('n', '<leader>le', ':Lspsaga show_line_diagnostics<cr>')
 keymap.set('n', '<leader>rn', ':Lspsaga rename<cr>')
 keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 -- keymap.set('n', '<leader>lE', ':Lspsaga show_cursor_diagnostics<cr>')
---
+
 -- use <C-t> to jump back
 keymap.set('n', '<leader>ll', ':Lspsaga lsp_finder<cr>')
 keymap.set('n', '<leader>ld', ':Lspsaga peek_definition<cr>')
 keymap.set('n', '<leader>lh', vim.lsp.buf.signature_help)
 keymap.set('n', '<leader>lq', vim.diagnostic.setloclist)
+
 -- Outline
 keymap.set("n", "<leader>lo", "<cmd>LSoutlineToggle<CR>", { silent = true })
 
-keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
-keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
+-- diagnostic and error
+keymap.set("n", "<leader>ee", "<cmd> TroubleToggle document_diagnostics <CR>")
+keymap.set('n', '<leader>el', ':Lspsaga show_line_diagnostics<cr>')
+keymap.set('n', '<leader>ea', ':Lspsaga code_action<cr>')
+keymap.set("n", "[e", "<cmd> Lspsaga diagnostic_jump_prev <CR>", { silent = true })
+keymap.set("n", "]e", "<cmd> Lspsaga diagnostic_jump_next <CR>", { silent = true })
 keymap.set("n", "[E", function()
     require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
