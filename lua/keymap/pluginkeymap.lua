@@ -8,10 +8,9 @@ keymap.set('n', '<leader>bm', ":BDelete other<CR>")
 keymap.set('n', '<leader>t', '<cmd> NvimTreeToggle <CR>')
 
 -- f: telescope
-keymap.set({ 'n', 'i' }, '<C-p>', function() require 'telescope.builtin'.find_files {} end)
+keymap.set({ 'n', 'i' }, '<C-p>', "<cmd> Telescope find_files <CR>")
 keymap.set('n', '<leader>/', "<cmd> Telescope live_grep <CR>")
 keymap.set('n', 'K', "<cmd> Telescope grep_string <CR>")
-keymap.set('n', '<leader>ff', "<cmd> Telescope find_files <CR>")
 keymap.set('n', '<leader>gc', "<cmd> Telescope git_bcommits <CR>")
 keymap.set('n', '<leader>gs', "<cmd> Telescope git_status <CR>")
 -- keymap.set('n', '<leader>fgc', "<cmd> Telescope git_commits <CR>")
@@ -23,9 +22,9 @@ keymap.set('n', '<leader>gs', "<cmd> Telescope git_status <CR>")
 
 --s :Spectre search replace
 keymap.set("n", "<leader>sr", "<cmd>lua require('spectre').open()<CR>")
+keymap.set("v", "<leader>sr", "<esc>:lua require('spectre').open_visual()<CR>")
 -- search current word
 keymap.set("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>")
-keymap.set("v", "<leader>sr", "<esc>:lua require('spectre').open_visual()<CR>")
 -- search in current file
 keymap.set("n", "<leader>sp", "viw:lua require('spectre').open_file_search()<CR>")
 
