@@ -32,6 +32,12 @@ keymap.set("n", "<leader>sp", "viw:lua require('spectre').open_file_search()<CR>
 keymap.set('n', '<leader>bb', ':BufferLinePick <CR>')
 keymap.set('n', '<TAB>', ':BufferLineCycleNext <CR>')
 keymap.set('n', '<S-Tab>', ':BufferLineCyclePrev <CR>')
+keymap.set('n', '<leader>1', '<Cmd>BufferLineGoToBuffer 1<CR>')
+keymap.set('n', '<leader>2', '<Cmd>BufferLineGoToBuffer 2<CR>')
+keymap.set('n', '<leader>3', '<Cmd>BufferLineGoToBuffer 3<CR>')
+keymap.set('n', '<leader>4', '<Cmd>BufferLineGoToBuffer 4<CR>')
+keymap.set('n', '<leader>5', '<Cmd>BufferLineGoToBuffer 5<CR>')
+keymap.set('n', '<leader>$', '<Cmd>BufferLineGoToBuffer -1<CR>')
 
 -- l: lsp
 keymap.set('n', 'H', vim.lsp.buf.hover)
