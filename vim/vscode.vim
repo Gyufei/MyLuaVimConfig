@@ -7,7 +7,7 @@ set selectmode=mouse,key
 
 " 将 Vim 和 Neovim 配置分开之后，Neovim 使用 Packer
 " 管理插件，无法再兼容以下注释配置
-
+"
 " call plug#begin('~/.vim/bundle')
 "  Plug 'asvetliakov/vim-easymotion'
 "  Plug 'tpope/vim-surround'

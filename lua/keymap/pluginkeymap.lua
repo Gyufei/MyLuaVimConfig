@@ -1,8 +1,8 @@
 local keymap = vim.keymap
 
+-- buffer delete
 keymap.set('n', '<leader>q', ":BDelete this<CR>")
 keymap.set('n', '<leader>bm', ":BDelete other<CR>")
-
 
 -- t: file tree
 keymap.set('n', '<leader>t', '<cmd> NvimTreeToggle <CR>')
@@ -28,7 +28,7 @@ keymap.set("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_w
 -- search in current file
 keymap.set("n", "<leader>sp", "viw:lua require('spectre').open_file_search()<CR>")
 
--- b: buffer
+-- b: bufferLine
 keymap.set('n', '<leader>bb', ':BufferLinePick <CR>')
 keymap.set('n', '<TAB>', ':BufferLineCycleNext <CR>')
 keymap.set('n', '<S-Tab>', ':BufferLineCyclePrev <CR>')

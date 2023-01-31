@@ -1,6 +1,7 @@
 local M = {}
 function M.config()
-    local servers = { "html", "cssls", "tsserver", "eslint", "tailwindcss", "jsonls", "volar", "sumneko_lua", "vimls"}
+    -- local servers = { "html", "cssls", "tsserver", "eslint", "tailwindcss", "jsonls", "volar", "sumneko_lua", "vimls"}
+    local servers = { "html", "cssls", "tsserver", "eslint", "jsonls", "volar", "sumneko_lua", "vimls"}
 
     require("mason").setup()
     require("mason-lspconfig").setup({
