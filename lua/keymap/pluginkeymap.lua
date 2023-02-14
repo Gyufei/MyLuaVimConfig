@@ -1,5 +1,7 @@
 local keymap = vim.keymap
 
+keymap.set('!', '<C-f>', '<Right>')
+
 -- buffer delete
 keymap.set('n', '<leader>q', ":BDelete this<CR>")
 keymap.set('n', '<leader>bm', ":BDelete other<CR>")

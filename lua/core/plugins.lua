@@ -40,7 +40,9 @@ return require('packer').startup(function()
 
   use 'RRethy/vim-illuminate'
   use 'kazhala/close-buffers.nvim'
+
   use 'm4xshen/autoclose.nvim'
   use "kylechui/nvim-surround"
   use "phaazon/hop.nvim"
+  use "linty-org/readline.nvim"
 end)
