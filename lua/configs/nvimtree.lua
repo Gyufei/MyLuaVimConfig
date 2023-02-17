@@ -2,7 +2,6 @@ local M = {}
 function M.config()
     -- nvim-tree config
     require 'nvim-tree'.setup {
-        open_on_setup        = true,
         hijack_unnamed_buffer_when_opening = true,
         update_focused_file  = {
             enable           = true,
@@ -33,6 +32,15 @@ function M.config()
             }
         }
     }
+
 end
+
+
+local function open_nvim_tree()
+  -- always open the tree
+  require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 return M

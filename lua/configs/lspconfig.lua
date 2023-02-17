@@ -1,7 +1,7 @@
 local M = {}
 function M.config()
     -- local servers = { "html", "cssls", "tsserver", "eslint", "tailwindcss", "jsonls", "volar", "sumneko_lua", "vimls"}
-    local servers = { "html", "cssls", "tsserver", "eslint", "jsonls", "volar", "sumneko_lua", "vimls"}
+    local servers = { "html", "cssls", "tsserver", "eslint", "jsonls", "volar" }
 
     require("mason").setup()
     require("mason-lspconfig").setup({
@@ -41,8 +41,7 @@ function M.config()
         end
     }
 
-    local saga = require 'lspsaga'
-    saga.init_lsp_saga({})
+    require('lspsaga').setup({})
 end
 
 return M

@@ -29,20 +29,26 @@ return require('packer').startup(function()
   use { 'lewis6991/gitsigns.nvim', tag = 'release', }
   use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use 'kevinhwang91/nvim-bqf'
-  use 'windwp/nvim-spectre'
+
+  -- global replace
+  -- use 'windwp/nvim-spectre'
+  -- term
+  -- use 'akinsho/toggleterm.nvim'
 
   use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim' }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'akinsho/toggleterm.nvim'
 
   use 'numToStr/Comment.nvim'
   use "lukas-reineke/indent-blankline.nvim"
 
-  use 'RRethy/vim-illuminate'
+  --hilight current word
+  use 'tzachar/local-highlight.nvim'
   use 'kazhala/close-buffers.nvim'
 
   use 'm4xshen/autoclose.nvim'
   use "kylechui/nvim-surround"
   use "phaazon/hop.nvim"
+
+  -- emacs edit key like c-w,c-h
   use "linty-org/readline.nvim"
 end)

@@ -10,6 +10,7 @@ function M.config()
     require('Comment').setup()
     require("nvim-surround").setup()
     require('spectre').setup()
+    require('local-highlight').setup({})
 
     require('hop').setup()
     local hop = require('hop')
