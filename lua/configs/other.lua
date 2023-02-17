@@ -9,7 +9,6 @@ function M.config()
     require("autoclose").setup({})
     require('Comment').setup()
     require("nvim-surround").setup()
-    require('spectre').setup()
     require('local-highlight').setup({})
 
     require('hop').setup()

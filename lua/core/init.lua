@@ -88,7 +88,6 @@ require("configs.nvimtree").config()
 require("configs.treesitter").config()
 require("configs.lualine").config()
 require("configs.bufferline").config()
-require("configs.terminal").config()
 require("configs.telescope").config()
 require("configs.other").config()
 
