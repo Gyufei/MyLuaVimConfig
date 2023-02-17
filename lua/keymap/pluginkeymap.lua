@@ -60,9 +60,6 @@ keymap.set('n', '<leader>ld', ':Lspsaga peek_definition<cr>')
 keymap.set('n', '<leader>lh', vim.lsp.buf.signature_help)
 keymap.set('n', '<leader>lq', vim.diagnostic.setloclist)
 
--- Outline
-keymap.set("n", "<leader>lo", "<cmd>LSoutlineToggle<CR>", { silent = true })
-
 -- diagnostic and error
 keymap.set("n", "<leader>ee", "<cmd> TroubleToggle document_diagnostics <CR>")
 keymap.set('n', '<leader>el', ':Lspsaga show_line_diagnostics<cr>')
@@ -77,7 +74,7 @@ keymap.set("n", "]E", function()
 end, { silent = true })
 
 -- git
-keymap.set('n', '<leader>gv', 
+keymap.set('n', '<leader>gv',
   function()
     require("gitsigns").preview_hunk()
   end
