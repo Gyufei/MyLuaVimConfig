@@ -9,33 +9,5 @@
             "</template>"
         ],
         "description": "template element"
-    },
-    "v-if": {
-        "prefix": "v-if",
-        "body": [
-            "v-if=\"${1:condition}\""
-        ],
-        "description": "Expects: any"
-    },
-    "v-else-if": {
-        "prefix": "v-else-if",
-        "body": [
-            "v-else-if=\"${1:condition}\""
-        ],
-        "description": "Expects: any. previous sibling element must have v-if or v-else-if."
-    },
-    "v-for": {
-        "prefix": "v-for",
-        "body": [
-            "v-for=\"(${1:item}, ${2:index}) in ${3:items}\" :key=\"${4:index}\""
-        ],
-        "description": "Expects: Array | Object | number | string"
-    },
-    "v-model": {
-        "prefix": "v-model",
-        "body": [
-            "v-model=\"${1:something}\""
-        ],
-        "description": "Expects: varies based on value of form inputs element or output of components"
     }
 }
