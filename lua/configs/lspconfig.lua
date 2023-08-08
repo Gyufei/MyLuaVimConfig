@@ -41,7 +41,11 @@ function M.config()
         end
     }
 
-    require('lspsaga').setup({})
+    require('lspsaga').setup({
+      lightbulb = {
+        enable_in_insert = false
+      },
+    })
 end
 
 return M

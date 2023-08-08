@@ -21,15 +21,6 @@ keymap.set('n', '<leader>gs', "<cmd> Telescope git_status <CR>")
 -- keymap.set('n', '<leader>fo', "<cmd> Telescope oldfiles <CR>")
 -- keymap.set('n', '<leader>fv', "<cmd> Telescope treesitter <CR>")
 
-
---s :Spectre search replace
-keymap.set("n", "<leader>sr", "<cmd>lua require('spectre').open()<CR>")
-keymap.set("v", "<leader>sr", "<esc>:lua require('spectre').open_visual()<CR>")
--- search current word
-keymap.set("n", "<leader>sw", "<cmd>lua require('spectre').open_visual({select_word=true})<CR>")
--- search in current file
-keymap.set("n", "<leader>sp", "viw:lua require('spectre').open_file_search()<CR>")
-
 -- b: bufferLine
 keymap.set('n', '<leader>bb', ':BufferLinePick <CR>')
 keymap.set('n', '<TAB>', ':BufferLineCycleNext <CR>')
@@ -102,5 +93,3 @@ keymap.set('n', "[c",
         return "<Ignore>"
       end
 )
-
-

@@ -9,7 +9,6 @@ return require('packer').startup(function()
   -- themes
   use "ellisonleao/gruvbox.nvim"
   use 'nvim-treesitter/nvim-treesitter'
-
   -- language
   use { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", "neovim/nvim-lspconfig", }
   use 'glepnir/lspsaga.nvim'
@@ -41,10 +40,13 @@ return require('packer').startup(function()
   use 'numToStr/Comment.nvim'
   use "lukas-reineke/indent-blankline.nvim"
 
+  use "github/copilot.vim"
+  -- use "hood/popui.nvim"
+
   --hilight current word
   use 'tzachar/local-highlight.nvim'
-  use 'kazhala/close-buffers.nvim'
 
+  use 'kazhala/close-buffers.nvim'
   use 'm4xshen/autoclose.nvim'
   use "kylechui/nvim-surround"
   use "phaazon/hop.nvim"
