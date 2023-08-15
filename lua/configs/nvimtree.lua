@@ -16,7 +16,9 @@ function M.config()
         },
         view                 = {
             width = 30,
-            hide_root_folder = true,
+        },
+        renderer = {
+          root_folder_label = false
         },
         trash                = {
             cmd = "trash"

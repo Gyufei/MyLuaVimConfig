@@ -1,6 +1,6 @@
-let path = expand('<sfile>:p:h')
 
 if exists('g:vscode')
+    let path = expand('<sfile>:p:h')
     exec 'source' path . '/vim/vscode.vim'
 else
     lua require('core.init')
