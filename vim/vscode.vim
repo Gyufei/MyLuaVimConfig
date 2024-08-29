@@ -13,14 +13,15 @@ set selectmode=mouse,key
 "  Plug 'tpope/vim-surround'
 "  Plug 'unblevable/quick-scope'
 " call plug#end()
-" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-" let g:qs_max_chars=200
-" highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
-" highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
+
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+let g:qs_max_chars=200
+highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
 
 
 let mapleader = "\<Space>"
-nnoremap <Leader>w :Write<CR>
+nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :Quit<CR>
 nnoremap <Leader>Q :Qall<CR>
 
@@ -31,7 +32,6 @@ vnoremap <Leader>P "+P
 vnoremap <Leader>y "+y
 vnoremap <Leader>d "+d
 
-" xnoremap <silent> <leader>/ :<C-u>call <SID>FindSelectedTextInDir()<CR><Esc>
 nnoremap <leader>/ <Cmd>call VSCodeNotify('extension.searchUnderCursor')<CR>
 nnoremap <leader>bm <Cmd>call VSCodeNotify('workbench.action.closeOtherEditors')<CR>
 nnoremap <leader>1 <Cmd>call VSCodeNotify('workbench.action.openEditorAtIndex1')<CR>

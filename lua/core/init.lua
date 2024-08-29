@@ -56,10 +56,10 @@ vim.g.gui_font_size = vim.g.gui_font_default_size
 vim.g.gui_font_face = "NotoMono Nerd Font Mono"
 
 vim.o.background = "dark" -- or "light"
-vim.cmd("colorscheme gruvbox")
+-- vim.cmd("colorscheme gruvbox")
 
 require("keymap.normal")
-require("keymap.pluginkeymap")
+-- require("keymap.pluginkeymap")
 require("core.plugins")
 
 -- disable some useless standard plugins to save startup time
@@ -79,15 +79,15 @@ vim.g.loaded_netrwPlugin       = 1
 vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_remote_plugins    = 1
 
-require("impatient")
-require("configs.cmp").config()
-require("configs.lspconfig").config()
-require("configs.nullls").config()
+-- require("impatient")
+-- require("configs.cmp").config()
+-- require("configs.lspconfig").config()
+-- require("configs.nullls").config()
 
-require("configs.nvimtree").config()
-require("configs.treesitter").config()
-require("configs.lualine").config()
-require("configs.bufferline").config()
-require("configs.telescope").config()
-require("configs.other").config()
+-- require("configs.nvimtree").config()
+-- require("configs.treesitter").config()
+-- require("configs.lualine").config()
+-- require("configs.bufferline").config()
+-- require("configs.telescope").config()
+-- require("configs.other").config()
 
