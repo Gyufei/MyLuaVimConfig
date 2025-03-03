@@ -1,0 +1,32 @@
+local vscode = require('vscode')
+
+vim.g.mapleader = " "
+vim.keymap.set('n', '<leader>p', '"+p')
+vim.keymap.set('n', '<leader>P', '"+P')
+vim.keymap.set('v', '<leader>p', '"+p')
+vim.keymap.set('v', '<leader>P', '"+P')
+vim.keymap.set('v', '<leader>y', '"+y')
+vim.keymap.set('v', '<leader>d', '"+d')
+
+vim.keymap.set('n', '<leader>/', "<Cmd>lua require('vscode').action('workbench.action.findInFiles', { args = { query = vim.fn.expand('<cword>') } })<CR>")
+vim.keymap.set('n', '<leader>w', "<Cmd>lua require('vscode').call('workbench.action.files.save')<CR>")
+vim.keymap.set('n', '<leader>q', "<Cmd>lua require('vscode').call('workbench.action.closeActiveEditor')<CR>")
+vim.keymap.set('n', '<leader>Q', "<Cmd>lua require('vscode').call('workbench.action.closeAllEditors')<CR>")
+vim.keymap.set('n', '<leader>bm', "<Cmd>lua require('vscode').call('workbench.action.closeOtherEditors')<CR>")
+vim.keymap.set('n', '<leader>1', "<Cmd>lua require('vscode').call('workbench.action.openEditorAtIndex1')<CR>")
+vim.keymap.set('n', '<leader>2', "<Cmd>lua require('vscode').call('workbench.action.openEditorAtIndex2')<CR>")
+vim.keymap.set('n', '<leader>3', "<Cmd>lua require('vscode').call('workbench.action.openEditorAtIndex3')<CR>")
+vim.keymap.set('n', '<leader>4', "<Cmd>lua require('vscode').call('workbench.action.openEditorAtIndex4')<CR>")
+vim.keymap.set('n', '<leader>5', "<Cmd>lua require('vscode').call('workbench.action.openEditorAtIndex5')<CR>")
+vim.keymap.set('n', '<leader>6', "<Cmd>lua require('vscode').call('workbench.action.openEditorAtIndex6')<CR>")
+vim.keymap.set('n', '<leader>7', "<Cmd>lua require('vscode').call('workbench.action.openEditorAtIndex7')<CR>")
+vim.keymap.set('n', '<leader>8', "<Cmd>lua require('vscode').call('workbench.action.openEditorAtIndex8')<CR>")
+vim.keymap.set('n', '<leader>9', "<Cmd>lua require('vscode').call('workbench.action.openEditorAtIndex9')<CR>")
+
+vim.keymap.set('n', '<leader>ee', "<Cmd>lua require('vscode').call('editor.action.quickFix')<CR>")
+vim.keymap.set('n', '<leader>rn', "<Cmd>lua require('vscode').call('editor.action.rename')<CR>")
+
+vim.keymap.set('n', '<C-j>', "<Cmd>lua require('vscode').call('workbench.action.previousEditor')<CR>")
+vim.keymap.set('n', '<C-k>', "<Cmd>lua require('vscode').call('workbench.action.nextEditor')<CR>")
+vim.keymap.set('n', '<C-h>', "<Cmd>lua require('vscode').call('workbench.files.action.showActiveFileInExplorer')<CR>")
+vim.keymap.set('v', '<C-h>', "<Cmd>lua require('vscode').call('workbench.files.action.showActiveFileInExplorer')<CR>")

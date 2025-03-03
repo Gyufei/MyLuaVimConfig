@@ -1,4 +1,3 @@
--- basics
 vim.cmd('syntax on')
 vim.cmd('filetype plugin indent on')
 vim.opt.showmatch      = true
@@ -7,7 +6,6 @@ vim.opt.autowrite      = true
 
 vim.opt.number         = true
 vim.opt.relativenumber = true
--- vim.opt.nuw            = 6
 vim.opt.cursorline     = true
 vim.opt.showcmd     = true
 
@@ -23,19 +21,19 @@ vim.opt.encoding = 'utf-8'
 
 vim.opt.wrap = false
 vim.opt.wrapscan    = true
+vim.opt.iskeyword:append('_,$,@,%,#,-')
+vim.opt.matchtime = 1
+
 vim.opt.ignorecase = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
-vim.opt.iskeyword:append {'_', '$', '@', '%', '#', '-'}
-vim.opt.matchtime = 1
-
+vim.opt.selection = "inclusive"
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
 vim.opt.scrolloff = 3
 vim.opt.termguicolors  = true
 vim.opt.updatetime     = 100
 vim.opt.backspace = "indent,eol,start"
-vim.opt.selection = "exclusive"
 vim.opt.selectmode = "mouse,key"
 vim.opt.signcolumn = "yes:1"
 
@@ -48,19 +46,7 @@ vim.opt.shiftround     = true
 vim.opt.shiftwidth    = 2
 vim.opt.tabstop       = 2
 vim.opt.softtabstop   = 2
-
 vim.opt.mouse        = 'a'
-
-vim.g.gui_font_default_size = 12
-vim.g.gui_font_size = vim.g.gui_font_default_size
-vim.g.gui_font_face = "NotoMono Nerd Font Mono"
-
-vim.o.background = "dark" -- or "light"
--- vim.cmd("colorscheme gruvbox")
-
-require("keymap.normal")
--- require("keymap.pluginkeymap")
-require("core.plugins")
 
 -- disable some useless standard plugins to save startup time
 -- these features have been better covered by plugins
@@ -79,15 +65,16 @@ vim.g.loaded_netrwPlugin       = 1
 vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_remote_plugins    = 1
 
--- require("impatient")
--- require("configs.cmp").config()
--- require("configs.lspconfig").config()
--- require("configs.nullls").config()
+vim.cmd [[packadd packer.nvim]]
 
--- require("configs.nvimtree").config()
--- require("configs.treesitter").config()
--- require("configs.lualine").config()
--- require("configs.bufferline").config()
--- require("configs.telescope").config()
--- require("configs.other").config()
+require('packer').startup(function()
+  use 'wbthomason/packer.nvim'
+  use "ggandor/leap.nvim"
+  use 'tpope/vim-surround'
+end)
 
+require('leap').create_default_mappings()
+
+if vim.g.vscode then
+  require('vscode-conf')
+end;
