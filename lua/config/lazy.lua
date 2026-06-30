@@ -28,7 +28,7 @@ require('lazy').setup({
   spec = {
     { import = 'plugins' },
   },
-  install = { colorscheme = { 'habamax' } },
+  install = { colorscheme = { 'gruvbox', 'habamax' } },
   rocks = { enabled = false },
   checker = { enabled = false },
 })
