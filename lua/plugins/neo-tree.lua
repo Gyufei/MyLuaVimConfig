@@ -49,6 +49,7 @@ return {
   end,
   opts = {
     sources = { 'filesystem' },
+    enable_git_status = false,
     open_files_do_not_replace_types = { 'terminal', 'qf' },
     filesystem = {
       bind_to_cwd = false,

@@ -24,6 +24,8 @@ end)
 map('n', '<leader>w', call('workbench.action.files.save'))
 map('n', '<leader>q', call('workbench.action.closeActiveEditor'))
 map('n', '<leader>Q', call('workbench.action.closeAllEditors'))
+map('n', '<leader>bd', call('workbench.action.closeActiveEditor'))
+map('n', '<leader>bD', call('workbench.action.closeActiveEditor'))
 map('n', '<leader>bm', call('workbench.action.closeOtherEditors'))
 
 -- Editor navigation
