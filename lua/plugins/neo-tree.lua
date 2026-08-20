@@ -26,20 +26,6 @@ return {
       end,
       desc = 'Explorer NeoTree (cwd)',
     },
-    {
-      '<leader>ge',
-      function()
-        require('neo-tree.command').execute({ source = 'git_status', toggle = true })
-      end,
-      desc = 'Git Explorer',
-    },
-    {
-      '<leader>be',
-      function()
-        require('neo-tree.command').execute({ source = 'buffers', toggle = true })
-      end,
-      desc = 'Buffer Explorer',
-    },
   },
   deactivate = function()
     vim.cmd([[Neotree close]])
@@ -62,7 +48,7 @@ return {
     })
   end,
   opts = {
-    sources = { 'filesystem', 'buffers', 'git_status' },
+    sources = { 'filesystem' },
     open_files_do_not_replace_types = { 'terminal', 'qf' },
     filesystem = {
       bind_to_cwd = false,
@@ -97,24 +83,9 @@ return {
         expander_expanded = 'v',
         expander_highlight = 'NeoTreeExpander',
       },
-      git_status = {
-        symbols = {
-          unstaged = 'M',
-          staged = 'S',
-        },
-      },
     },
   },
   config = function(_, opts)
     require('neo-tree').setup(opts)
-
-    vim.api.nvim_create_autocmd('TermClose', {
-      pattern = '*lazygit',
-      callback = function()
-        if package.loaded['neo-tree.sources.git_status'] then
-          require('neo-tree.sources.git_status').refresh()
-        end
-      end,
-    })
   end,
 }

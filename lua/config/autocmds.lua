@@ -2,6 +2,7 @@ local function augroup(name)
   return vim.api.nvim_create_augroup('user_' .. name, { clear = true })
 end
 
+-- Reload files changed outside Neovim.
 vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
   group = augroup('checktime'),
   callback = function()
@@ -11,6 +12,7 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
   end,
 })
 
+-- Briefly highlight copied text.
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = augroup('highlight_yank'),
   callback = function()
@@ -22,6 +24,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Keep split proportions usable after resizing the UI.
 vim.api.nvim_create_autocmd('VimResized', {
   group = augroup('resize_splits'),
   callback = function()
@@ -31,6 +34,7 @@ vim.api.nvim_create_autocmd('VimResized', {
   end,
 })
 
+-- Return to the last position when reopening a file.
 vim.api.nvim_create_autocmd('BufReadPost', {
   group = augroup('last_loc'),
   callback = function(event)
@@ -48,18 +52,13 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   end,
 })
 
+-- Treat temporary utility buffers as disposable views.
 vim.api.nvim_create_autocmd('FileType', {
   group = augroup('close_with_q'),
   pattern = {
-    'PlenaryTestPopup',
     'checkhealth',
-    'gitsigns-blame',
     'help',
-    'lspinfo',
-    'notify',
     'qf',
-    'startuptime',
-    'tsplayground',
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
@@ -76,6 +75,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Keep man pages out of the normal buffer list.
 vim.api.nvim_create_autocmd('FileType', {
   group = augroup('man_unlisted'),
   pattern = { 'man' },
@@ -84,15 +84,20 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Make prose readable while keeping code unwrapped.
 vim.api.nvim_create_autocmd('FileType', {
   group = augroup('wrap_spell'),
   pattern = { 'text', 'plaintex', 'typst', 'gitcommit', 'markdown' },
   callback = function()
     vim.opt_local.wrap = true
+    if vim.g.vscode then
+      return
+    end
     vim.opt_local.spell = true
   end,
 })
 
+-- Show JSON punctuation instead of concealing it.
 vim.api.nvim_create_autocmd('FileType', {
   group = augroup('json_conceal'),
   pattern = { 'json', 'jsonc', 'json5' },
@@ -101,6 +106,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Create a missing parent directory on explicit save.
 vim.api.nvim_create_autocmd('BufWritePre', {
   group = augroup('auto_create_dir'),
   callback = function(event)

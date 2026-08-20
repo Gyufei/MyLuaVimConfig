@@ -1,4 +1,4 @@
-local ensure_installed = {
+local parsers = {
   'bash',
   'c',
   'css',
@@ -16,6 +16,8 @@ local ensure_installed = {
   'python',
   'query',
   'regex',
+  'ron',
+  'rust',
   'toml',
   'tsx',
   'typescript',
@@ -50,18 +52,14 @@ local function has_query(lang, query)
   return ok and result ~= nil
 end
 
-local function setup_buffer(buf, opts)
-  local lang = vim.treesitter.language.get_lang(vim.bo[buf].filetype)
+local function setup_buffer(bufnr, opts)
+  local lang = vim.treesitter.language.get_lang(vim.bo[bufnr].filetype)
   if not lang or not parser_installed(lang) or not has_query(lang, 'highlights') then
     return
   end
 
   if vim.tbl_get(opts, 'highlight', 'enable') ~= false then
-    pcall(vim.treesitter.start, buf, lang)
-  end
-
-  if vim.tbl_get(opts, 'indent', 'enable') ~= false and has_query(lang, 'indents') then
-    vim.bo[buf].indentexpr = 'v:lua.vim.treesitter.indentexpr()'
+    pcall(vim.treesitter.start, bufnr, lang)
   end
 
   if vim.tbl_get(opts, 'folds', 'enable') ~= false and has_query(lang, 'folds') then
@@ -79,10 +77,9 @@ return {
     event = { 'BufReadPost', 'BufNewFile', 'VeryLazy' },
     cmd = { 'TSUpdate', 'TSInstall', 'TSLog', 'TSUninstall' },
     opts = {
-      indent = { enable = true },
       highlight = { enable = true },
       folds = { enable = true },
-      ensure_installed = ensure_installed,
+      ensure_installed = parsers,
     },
     config = function(_, opts)
       require('nvim-treesitter').setup(opts)
@@ -95,9 +92,9 @@ return {
         end,
       })
 
-      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-        if vim.api.nvim_buf_is_loaded(buf) then
-          setup_buffer(buf, opts)
+      for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_loaded(bufnr) then
+          setup_buffer(bufnr, opts)
         end
       end
     end,
@@ -114,10 +111,10 @@ return {
         enable = true,
         set_jumps = true,
         keys = {
-          goto_next_start = { [']f'] = '@function.outer', [']c'] = '@class.outer', [']a'] = '@parameter.inner' },
-          goto_next_end = { [']F'] = '@function.outer', [']C'] = '@class.outer', [']A'] = '@parameter.inner' },
-          goto_previous_start = { ['[f'] = '@function.outer', ['[c'] = '@class.outer', ['[a'] = '@parameter.inner' },
-          goto_previous_end = { ['[F'] = '@function.outer', ['[C'] = '@class.outer', ['[A'] = '@parameter.inner' },
+          goto_next_start = { [']f'] = '@function.outer', [']c'] = '@class.outer' },
+          goto_next_end = { [']F'] = '@function.outer', [']C'] = '@class.outer' },
+          goto_previous_start = { ['[f'] = '@function.outer', ['[c'] = '@class.outer' },
+          goto_previous_end = { ['[F'] = '@function.outer', ['[C'] = '@class.outer' },
         },
       },
     },
@@ -129,12 +126,12 @@ return {
 
       textobjects.setup(opts)
 
-      local function attach(buf)
+      local function attach(bufnr)
         if not vim.tbl_get(opts, 'move', 'enable') then
           return
         end
 
-        local lang = vim.treesitter.language.get_lang(vim.bo[buf].filetype)
+        local lang = vim.treesitter.language.get_lang(vim.bo[bufnr].filetype)
         if not lang or not parser_installed(lang) or not has_query(lang, 'textobjects') then
           return
         end
@@ -147,7 +144,7 @@ return {
               end
               require('nvim-treesitter-textobjects.move')[method](query, 'textobjects')
             end, {
-              buffer = buf,
+              buffer = bufnr,
               silent = true,
               desc = 'Treesitter textobject move',
             })
@@ -162,20 +159,11 @@ return {
         end,
       })
 
-      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-        if vim.api.nvim_buf_is_loaded(buf) then
-          attach(buf)
+      for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_is_loaded(bufnr) then
+          attach(bufnr)
         end
       end
     end,
-  },
-  {
-    'windwp/nvim-ts-autotag',
-    cond = not vim.g.vscode,
-    event = { 'BufReadPost', 'BufNewFile' },
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-    },
-    opts = {},
   },
 }

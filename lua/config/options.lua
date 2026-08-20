@@ -1,14 +1,14 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.g.autoformat = true
 
 vim.cmd('syntax on')
 vim.cmd('filetype plugin indent on')
 
 local opt = vim.opt
 
+-- Files and persistence
 opt.autoread = true
-opt.autowrite = true
+opt.autowrite = false
 opt.autowriteall = false
 opt.autoindent = true
 opt.backspace = 'indent,eol,start'
@@ -16,6 +16,8 @@ opt.clipboard = vim.env.SSH_CONNECTION and '' or 'unnamedplus'
 opt.cmdheight = 1
 opt.completeopt = 'menu,menuone,noselect'
 opt.confirm = true
+
+-- Interface
 opt.cursorline = true
 opt.encoding = 'utf-8'
 opt.expandtab = true
@@ -27,6 +29,8 @@ opt.fillchars = {
   diff = '╱',
   eob = ' ',
 }
+
+-- Folding and search
 opt.foldlevel = 99
 opt.foldmethod = 'indent'
 opt.foldtext = ''
@@ -41,6 +45,8 @@ opt.inccommand = 'nosplit'
 opt.incsearch = true
 opt.iskeyword:append('_,$,@,%,#,-')
 opt.jumpoptions = 'view'
+
+-- Layout and movement
 opt.laststatus = 3
 opt.linebreak = true
 opt.list = true
@@ -54,6 +60,8 @@ opt.ruler = false
 opt.scrolloff = 4
 opt.selectmode = 'mouse,key'
 opt.selection = 'inclusive'
+
+-- Editing
 opt.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize', 'help', 'globals', 'skiprtp', 'folds' }
 opt.shiftround = true
 opt.shiftwidth = 2
@@ -63,7 +71,7 @@ opt.showcmd = true
 opt.showmatch = true
 opt.showmode = false
 opt.sidescrolloff = 8
-opt.signcolumn = 'yes'
+opt.signcolumn = 'no'
 opt.smartcase = true
 opt.smartindent = true
 opt.smarttab = true
@@ -86,8 +94,10 @@ opt.winminwidth = 5
 opt.wrap = false
 opt.wrapscan = true
 
+-- Filetype defaults
 vim.g.markdown_recommended_style = 0
 
+-- Disable unused built-in plugins
 vim.g.loaded_matchparen = 1
 vim.g.loaded_matchit = 1
 vim.g.loaded_logiPat = 1
