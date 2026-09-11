@@ -50,6 +50,47 @@ map('i', ';', ';<c-g>u')
 
 map({ 'i', 'x', 'n', 's' }, '<D-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
 
+local function run_current_file()
+  vim.cmd('write')
+
+  local file = vim.api.nvim_buf_get_name(0)
+  local filetype = vim.bo.filetype
+  local commands = {
+    javascript = { 'node', file },
+    lua = { 'lua', file },
+    python = { 'python3', file },
+    sh = { 'sh', file },
+  }
+  local command = commands[filetype]
+  local cwd
+
+  if filetype == 'rust' then
+    local manifest = vim.fs.find('Cargo.toml', { path = vim.fs.dirname(file), upward = true })[1]
+    if not manifest then
+      vim.notify('Cargo.toml not found', vim.log.levels.ERROR)
+      return
+    end
+    command = { 'cargo', 'run' }
+    cwd = vim.fs.dirname(manifest)
+  end
+
+  if not command then
+    vim.notify('No runner configured for filetype: ' .. filetype, vim.log.levels.WARN)
+    return
+  end
+  if vim.fn.executable(command[1]) == 0 then
+    vim.notify('Executable not found: ' .. command[1], vim.log.levels.ERROR)
+    return
+  end
+
+  vim.cmd('botright 15split')
+  vim.fn.termopen(command, { cwd = cwd })
+  vim.cmd('startinsert')
+end
+
+map('n', '<leader>r', run_current_file, { desc = 'Run Current File' })
+map('n', '<leader>q', '<cmd>q<cr>', { desc = 'Quit Window' })
+
 map('x', '<', '<gv')
 map('x', '>', '>gv')
 
