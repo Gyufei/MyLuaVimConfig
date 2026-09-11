@@ -68,10 +68,6 @@ map('n', '<leader>;;', '<cmd>Cargo run<cr>', { desc = 'Run Current File' })
 map('n', '<leader>q', '<cmd>q<cr>', { desc = 'Quit Window' })
 map('n', '<leader>Q', '<cmd>qa<cr>', { desc = 'Quit All' })
 
--- LSP
-map('n', '<leader>ee', vim.lsp.buf.code_action, { desc = 'Code Action' })
-map('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename' })
-
 map('x', '<', '<gv')
 map('x', '>', '>gv')
 
