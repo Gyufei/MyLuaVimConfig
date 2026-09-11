@@ -30,6 +30,12 @@ map('n', '<leader>bl', '<cmd>BufferLineCloseLeft<cr>', { desc = 'Delete Buffers 
 map('n', '<leader>br', '<cmd>BufferLineCloseRight<cr>', { desc = 'Delete Buffers to the Right' })
 map('n', '<leader>bp', '<cmd>BufferLinePick<cr>', { desc = 'Pick Buffer' })
 
+for index = 1, 9 do
+  map('n', '<leader>' .. index, '<cmd>BufferLineGoToBuffer ' .. index .. '<cr>', {
+    desc = 'Go to Buffer ' .. index,
+  })
+end
+
 -- Search
 map({ 'i', 'n', 's' }, '<esc>', function()
   vim.cmd('nohlsearch')
@@ -44,52 +50,27 @@ map('x', 'N', "'nN'[v:searchforward]", { expr = true, desc = 'Prev Search Result
 map('o', 'N', "'nN'[v:searchforward]", { expr = true, desc = 'Prev Search Result' })
 
 -- Editing
+map('n', '<leader>p', '"+p', { desc = 'Paste from System Clipboard' })
+map('n', '<leader>P', '"+P', { desc = 'Paste Before from System Clipboard' })
+map('x', '<leader>p', '"+p', { desc = 'Paste from System Clipboard' })
+map('x', '<leader>P', '"+P', { desc = 'Paste Before from System Clipboard' })
+map('x', '<leader>y', '"+y', { desc = 'Yank to System Clipboard' })
+map('x', '<leader>d', '"+d', { desc = 'Delete to System Clipboard' })
+
 map('i', ',', ',<c-g>u')
 map('i', '.', '.<c-g>u')
 map('i', ';', ';<c-g>u')
 
 map({ 'i', 'x', 'n', 's' }, '<D-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
+map('n', '<leader>w', '<cmd>w<cr>', { desc = 'Save File' })
 
-local function run_current_file()
-  vim.cmd('write')
-
-  local file = vim.api.nvim_buf_get_name(0)
-  local filetype = vim.bo.filetype
-  local commands = {
-    javascript = { 'node', file },
-    lua = { 'lua', file },
-    python = { 'python3', file },
-    sh = { 'sh', file },
-  }
-  local command = commands[filetype]
-  local cwd
-
-  if filetype == 'rust' then
-    local manifest = vim.fs.find('Cargo.toml', { path = vim.fs.dirname(file), upward = true })[1]
-    if not manifest then
-      vim.notify('Cargo.toml not found', vim.log.levels.ERROR)
-      return
-    end
-    command = { 'cargo', 'run' }
-    cwd = vim.fs.dirname(manifest)
-  end
-
-  if not command then
-    vim.notify('No runner configured for filetype: ' .. filetype, vim.log.levels.WARN)
-    return
-  end
-  if vim.fn.executable(command[1]) == 0 then
-    vim.notify('Executable not found: ' .. command[1], vim.log.levels.ERROR)
-    return
-  end
-
-  vim.cmd('botright 15split')
-  vim.fn.termopen(command, { cwd = cwd })
-  vim.cmd('startinsert')
-end
-
-map('n', '<leader>r', run_current_file, { desc = 'Run Current File' })
+map('n', '<leader>;;', '<cmd>Cargo run<cr>', { desc = 'Run Current File' })
 map('n', '<leader>q', '<cmd>q<cr>', { desc = 'Quit Window' })
+map('n', '<leader>Q', '<cmd>qa<cr>', { desc = 'Quit All' })
+
+-- LSP
+map('n', '<leader>ee', vim.lsp.buf.code_action, { desc = 'Code Action' })
+map('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename' })
 
 map('x', '<', '<gv')
 map('x', '>', '>gv')

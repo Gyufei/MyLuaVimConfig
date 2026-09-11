@@ -56,6 +56,7 @@ return {
     { '<leader>fF', pick('files', { root = false }), desc = 'Find Files (cwd)' },
     { '<leader>sg', pick('grep'), desc = 'Grep (Root Dir)' },
     { '<leader>sG', pick('grep', { root = false }), desc = 'Grep (cwd)' },
+    { '<leader>/', pick('grep_word'), desc = 'Search Current Word (Root Dir)' },
     {
       '<leader>sw',
       pick('grep_word'),
